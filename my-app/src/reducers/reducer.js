@@ -33,7 +33,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map(todo => {
-          todo.id, action.payload.id;
           return todo.id === action.payload.id
             ? { ...todo, completed: !todo.completed }
             : todo;
