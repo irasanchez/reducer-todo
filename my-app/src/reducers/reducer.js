@@ -1,4 +1,5 @@
 export const initialState = {
+  arbitraryItem: "jhvfdsfjbj",
   todos: [
     {
       todo: "build app using reducer",
@@ -8,10 +9,10 @@ export const initialState = {
     {
       todo: "eat lunch",
       completed: true,
-      id: 4567890987
+      id: 4567775447
     },
     {
-      todo: "get a job as a webdeveloper",
+      todo: "get a job as a web developer",
       completed: false,
       id: 9876543456
     }
@@ -32,6 +33,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map(todo => {
+          todo.id, action.payload.id;
           return todo.id === action.payload.id
             ? { ...todo, completed: !todo.completed }
             : todo;
@@ -40,7 +42,9 @@ export const reducer = (state = initialState, action) => {
     case "CLEAR":
       return {
         ...state,
-        todos: state.todos.filter(todo => !todo.completed)
+        todos: state.todos.filter(todo => {
+          return todo.completed === false;
+        })
       };
     default:
       return state;
